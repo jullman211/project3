@@ -222,12 +222,24 @@ public class DateTimeTwo {
 				dateSorted.put(formatLocal, counterKey);
 				
 				differenceYear = Math.abs(yearNow - yearInteger);
-				differenceMonth = Math.abs(monthNow - monthInteger);
+				differenceMonth = Math.abs(monthNow - monthInteger) + 1;
 				differenceDay = Math.abs(dayNow - dayInteger);
 				
 				if((yearInteger % 4) == 0) {
-					System.out.println(yearInteger + " is a leap year, and Difference: " + differenceYear 
-							+ " years, " + differenceMonth + " months, and " + differenceDay +" days.");
+					if((yearInteger % 100) != 0) {
+						if((yearInteger % 400) == 0) {
+							System.out.println(yearInteger + " is a leap year, and Difference: " + differenceYear 
+									+ " years, " + differenceMonth + " months, and " + differenceDay +" days.");
+						}
+						else {
+							System.out.println(yearInteger + " is not a leap year, and Difference: " + differenceYear 
+									+ " years, " + differenceMonth + " months, and " + differenceDay +" days.");
+						}
+					}
+					else {
+						System.out.println(yearInteger + " is not a leap year, and Difference: " + differenceYear 
+								+ " years, " + differenceMonth + " months, and " + differenceDay +" days.");
+					}
 				}
 				else {
 					System.out.println(yearInteger + " is not a leap year, and Difference: " + differenceYear 
