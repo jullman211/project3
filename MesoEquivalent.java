@@ -58,7 +58,7 @@ public class MesoEquivalent {
 			
 			if(skipLineCounter > START_LINE) {
 				
-				//strg.trim();
+				strg.trim();
 				strg.replace("","");
 				String compareString = strg.substring(0,4);
 				
