@@ -2,6 +2,7 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Map;
 import java.util.TreeMap;
 
@@ -31,7 +32,7 @@ public class MesoEquivalent {
 	}
 	
 
-	public HashMap<String, Integer> calAsciiEqual() throws IOException {
+	public void calAsciiEqual() throws IOException {
 		// TODO Auto-generated method stub
 		
 		BufferedReader br = new BufferedReader(new FileReader("Mesonet.txt"));
@@ -66,15 +67,19 @@ public class MesoEquivalent {
 			
 		}
 		br.close();
-		String myString = ("\n{");
+//		String myString = ("\n{");
 		
-		for(int i = 0; i < storedAverage.size(); i++) {
-			myString += storedAverage.keySet() + "=" + storedAverage.get(i) + ", ";
-		}
+//		for(int i = 0; i < storedAverage.size(); i++) {
+//			myString += storedAverage.keySet() + "=" + storedAverage.get(i) + ", ";
+//		}
 		
-		myString = ("}");
-		
-		return storedAverage;
+//		myString = ("}");
+		 Iterator it = storedAverage.entrySet().iterator();
+		    while (it.hasNext()) {
+		        Map.Entry pair = (Map.Entry)it.next();
+		        System.out.println(pair.getKey() + " = " + pair.getValue());
+		    }
+//		return storedAverage;
 
 	}
 
