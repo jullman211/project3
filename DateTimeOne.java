@@ -35,6 +35,16 @@ public class DateTimeOne extends MesoDateTimeOneAbstract {
 	private Map<String, String> dateTimeTreeTwo = new TreeMap<String, String>();
 	
 	private LocalDateTime[] newSort;
+
+	private String BSTValueOther;
+
+	private String GMTValueOther;
+
+	private String CSTValueOther;
+
+	private String ASTValueOther;
+
+	private String ZSTValueOther;
 	
 	public DateTimeOne() {
 		CSTValue = "CST";
@@ -79,21 +89,24 @@ public class DateTimeOne extends MesoDateTimeOneAbstract {
 		// TODO Auto-generated method stub
 		Date setCurrentTime = new Date();
 		SimpleDateFormat dateTimeFormat = new SimpleDateFormat("M/dd/yyyy HH:mm");
-		
+		SimpleDateFormat dateTimeFormatter = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm");
 		
 		// GMT timezone
 		dateTimeFormat.setTimeZone(TimeZone.getTimeZone("GMT"));
 		GMTValue = dateTimeFormat.format(setCurrentTime);
+		GMTValueOther = dateTimeFormatter.format(setCurrentTime);
 		System.out.println("GMT: " + GMTValue);
 		
 		// BST timezone
 		dateTimeFormat.setTimeZone(TimeZone.getTimeZone("Europe/London"));
 		BSTValue = dateTimeFormat.format(setCurrentTime);
+		BSTValueOther = dateTimeFormatter.format(setCurrentTime);
 		System.out.println("BST: " + BSTValue);
 		
 		// CST timezone
 		dateTimeFormat.setTimeZone(TimeZone.getTimeZone("CST"));
 		CSTValue = dateTimeFormat.format(setCurrentTime);
+		CSTValueOther = dateTimeFormatter.format(setCurrentTime);
 		System.out.println("CST: " + CSTValue);
 		
 		dateTimeHash.put("GMT", GMTValue);
@@ -103,13 +116,12 @@ public class DateTimeOne extends MesoDateTimeOneAbstract {
 		dateTimeTree.put("GMT", GMTValue);
 		dateTimeTree.put("BST", BSTValue);
 		dateTimeTree.put("CST", CSTValue);
-		SimpleDateFormat dateTimeFormatter = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm");
-		dateTimeTreeTwo.put("AST",dateTimeFormatter.format(ASTValue));
-		dateTimeTreeTwo.put("BST",dateTimeFormatter.format(CSTValue));
-		dateTimeTreeTwo.put("CST",dateTimeFormatter.format(CSTValue));
-		dateTimeTreeTwo.put("GMT",dateTimeFormatter.format(CSTValue));
-		dateTimeTreeTwo.put("ZST",dateTimeFormatter.format(CSTValue));
-
+		
+		
+		dateTimeTreeTwo.put("BST",BSTValueOther);
+		dateTimeTreeTwo.put("CST",CSTValueOther);
+		dateTimeTreeTwo.put("GMT",GMTValueOther);
+		
 	}
 	
 	@Override
@@ -141,12 +153,18 @@ public class DateTimeOne extends MesoDateTimeOneAbstract {
 		// TODO Auto-generated method stub
 		ASTValue = "10/01/2020 19:59";
 		ZSTValue = "11/05/2018 19:59";
+		ASTValueOther = "2020-10-01T19:59";
+		ZSTValueOther = "2018-11-05T19:59";
+		
 		
 		dateTimeHash.put("AST", ASTValue);
 		dateTimeHash.put("ZST", ZSTValue);
 		
 		dateTimeTree.put("AST", ASTValue);
 		dateTimeTree.put("ZST", ZSTValue);
+		
+		dateTimeTreeTwo.put("AST", ASTValueOther);
+		dateTimeTreeTwo.put("ZST", ZSTValueOther);
 		
 		
 		
