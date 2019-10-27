@@ -16,7 +16,7 @@ public class MesoEquivalent {
 	
 	private int secondAverage;
 	
-	private HashMap<String, Integer> storedAverage = new HashMap<String,Integer>();
+	private static HashMap<String, Integer> storedAverage = new HashMap<String,Integer>();
 	
 	private Map<String, Integer> sortedAverage = new TreeMap<String,Integer>();
 
@@ -33,7 +33,7 @@ public class MesoEquivalent {
 	
 	
 	static HashMap<String,Integer> print(HashMap<String,Integer> storedAverage2){
-        System.out.println(storedAverage2);
+		storedAverage.forEach((key, value) -> System.out.println(value));
         return storedAverage2;
     }
 	
