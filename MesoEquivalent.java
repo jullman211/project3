@@ -32,7 +32,7 @@ public class MesoEquivalent {
 	}
 	
 
-	public void calAsciiEqual() throws IOException {
+	public  HashMap<String, Integer> calAsciiEqual() throws IOException {
 		// TODO Auto-generated method stub
 		
 		BufferedReader br = new BufferedReader(new FileReader("Mesonet.txt"));
@@ -74,12 +74,12 @@ public class MesoEquivalent {
 //		}
 		
 //		myString = ("}");
-		 Iterator it = storedAverage.entrySet().iterator();
-		    while (it.hasNext()) {
-		        Map.Entry pair = (Map.Entry)it.next();
-		        System.out.println(pair.getKey() + " = " + pair.getValue());
-		    }
-//		return storedAverage;
+//		 Iterator it = storedAverage.entrySet().iterator();
+//		    while (it.hasNext()) {
+//		        Map.Entry pair = (Map.Entry)it.next();
+//		        System.out.println(pair.getKey() + " = " + pair.getValue());
+//		    }
+		return storedAverage;
 
 	}
 
