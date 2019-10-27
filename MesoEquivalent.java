@@ -3,6 +3,8 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Set;
 import java.util.TreeMap;
 
 public class MesoEquivalent {
@@ -31,7 +33,7 @@ public class MesoEquivalent {
 	}
 	
 
-	public HashMap<String, Integer> calAsciiEqual() throws IOException {
+	public Set<Entry<String, Integer>> calAsciiEqual() throws IOException {
 		// TODO Auto-generated method stub
 		
 		BufferedReader br = new BufferedReader(new FileReader("Mesonet.txt"));
@@ -74,7 +76,7 @@ public class MesoEquivalent {
 		
 		myString = ("}");
 		
-		return storedAverage;
+		return storedAverage.entrySet();
 
 	}
 
