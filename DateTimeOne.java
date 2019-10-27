@@ -4,6 +4,8 @@ import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
+import java.time.ZoneId;
+import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Date;
 import java.util.HashMap;
@@ -30,10 +32,15 @@ public class DateTimeOne extends MesoDateTimeOneAbstract {
 	
 	private HashMap<String, String> dateTimeHash = new HashMap<String, String>();
 	
+	private Map<String, String> dateTimeTreeTwo = new TreeMap<String, String>();
+	
+	private LocalDateTime[] newSort;
+	
 	public DateTimeOne() {
 		CSTValue = "CST";
 		GMTValue = "GMT";
 		BSTValue = "BST";
+		
 	}
 	
 	@Override
@@ -96,6 +103,12 @@ public class DateTimeOne extends MesoDateTimeOneAbstract {
 		dateTimeTree.put("GMT", GMTValue);
 		dateTimeTree.put("BST", BSTValue);
 		dateTimeTree.put("CST", CSTValue);
+		SimpleDateFormat dateTimeFormatter = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm");
+		dateTimeTreeTwo.put("AST",dateTimeFormatter.format(ASTValue));
+		dateTimeTreeTwo.put("BST",dateTimeFormatter.format(CSTValue));
+		dateTimeTreeTwo.put("CST",dateTimeFormatter.format(CSTValue));
+		dateTimeTreeTwo.put("GMT",dateTimeFormatter.format(CSTValue));
+		dateTimeTreeTwo.put("ZST",dateTimeFormatter.format(CSTValue));
 
 	}
 	
@@ -108,6 +121,7 @@ public class DateTimeOne extends MesoDateTimeOneAbstract {
 		// Time on serverd
 		dateTimeFormat.setTimeZone(TimeZone.getTimeZone("CST"));
 		System.out.println("Time on Server: " + dateTimeFormat.format(setCurrentTime));
+		
 		
 		// GMT timezone
 		dateTimeFormat.setTimeZone(TimeZone.getTimeZone("GMT"));
@@ -134,6 +148,9 @@ public class DateTimeOne extends MesoDateTimeOneAbstract {
 		dateTimeTree.put("AST", ASTValue);
 		dateTimeTree.put("ZST", ZSTValue);
 		
+		
+		
+		
 		// print alphabet
 		System.out.println("Print Style 1:");
 		dateTimeHash.forEach((key, value) -> System.out.println(key + ":" + value));
@@ -141,5 +158,8 @@ public class DateTimeOne extends MesoDateTimeOneAbstract {
 		// print 
 		System.out.println("Print Style 3:");
 		dateTimeTree.forEach((key, value) -> System.out.println(key + ":" + value));
+		
+		System.out.println("Print Style 1:");
+		dateTimeTreeTwo.forEach((key, value) -> System.out.println(value));
 	}
 }
