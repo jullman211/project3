@@ -177,7 +177,7 @@ public class DateTimeOne extends MesoDateTimeOneAbstract {
 		System.out.println("Print Style 3:");
 		dateTimeTree.forEach((key, value) -> System.out.println(key + ":" + value));
 		
-		System.out.println("Print Style 1:");
+		System.out.println("Print Style 5: Final sorted Array:");
 		dateTimeTreeTwo.forEach((key, value) -> System.out.println(value));
 	}
 }
