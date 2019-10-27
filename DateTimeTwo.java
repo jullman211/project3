@@ -12,6 +12,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.TreeMap;
 
+
 public class DateTimeTwo {
 	
 	private Map<LocalDate, Integer> dateTextHash = new HashMap<LocalDate, Integer>();
@@ -221,31 +222,36 @@ public class DateTimeTwo {
 				dateTextHash.put(formatLocal, counterKey);
 				dateSorted.put(formatLocal, counterKey);
 				
-				differenceYear = Math.abs(yearNow - yearInteger);
-				differenceMonth = Math.abs(monthNow - monthInteger) + 1;
-				differenceDay = Math.abs(dayNow - dayInteger);
+				differenceYear = Math.abs(2019 - yearInteger);
+				differenceMonth = Math.abs(monthInteger - 10) ;
+				differenceDay = Math.abs(dayInteger - 10);
 				
-				if((yearInteger % 4) == 0) {
-					if((yearInteger % 100) != 0) {
-						if((yearInteger % 400) == 0) {
-							System.out.println(yearInteger + " is a leap year, and Difference: " + differenceYear 
-									+ " years, " + differenceMonth + " months, and " + differenceDay +" days.");
+				if((monthNow < monthInteger) || differenceMonth ==0) {
+					differenceYear = differenceYear - 1;
+					//if(differenceYear == 0) {
+						if(dayInteger != 31) {
+								differenceMonth = monthNow + 1;
 						}
 						else {
-							System.out.println(yearInteger + " is not a leap year, and Difference: " + differenceYear 
-									+ " years, " + differenceMonth + " months, and " + differenceDay +" days.");
+							differenceMonth = monthNow;
 						}
-					}
-					else {
-						System.out.println(yearInteger + " is not a leap year, and Difference: " + differenceYear 
-								+ " years, " + differenceMonth + " months, and " + differenceDay +" days.");
-					}
+						if(differenceYear == 0) {
+							differenceDay = 40 - dayInteger;
+						}
+//						else if() {
+//							
+//						}
 				}
-				else {
-					System.out.println(yearInteger + " is not a leap year, and Difference: " + differenceYear 
+
+				if (((yearInteger % 4 == 0) && (yearInteger % 100!= 0)) || (yearInteger %400 == 0)) {
+					System.out.println(yearInteger + " is a leap year, and Difference: " + differenceYear 
 							+ " years, " + differenceMonth + " months, and " + differenceDay +" days.");
 				}
-				
+
+			    else {
+			    	System.out.println(yearInteger + " is not a leap year, and Difference: " + differenceYear 
+							+ " years, " + differenceMonth + " months, and " + differenceDay +" days.");
+			    }
 				counterKey++;
 		}
 		

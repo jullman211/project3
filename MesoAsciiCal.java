@@ -27,7 +27,7 @@ public class MesoAsciiCal extends MesoAsciiAbstract
 		
 		ascStringAverage = (int) Math.round(averageValue);
 		
-		finalValue = ascStringAverage / 79;
+		finalValue = (ascStringAverage + 79) / 2 ;
 	
 		return finalValue; 
 	}
