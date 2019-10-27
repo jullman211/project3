@@ -64,7 +64,7 @@ public class MesoEquivalent {
 				
 				avgValueString = calCompare(compareString);
 				if(avgValueString == compareTestAvgBase) {
-					//storedAverage.put(compareString, 76);
+					storedAverage.put(compareString, 76);
 					sortedAverage.put(compareString,76);
 				}
 				
