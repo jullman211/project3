@@ -31,7 +31,7 @@ public class MesoEquivalent {
 	}
 	
 
-	public HashMap<String, Integer> calAsciiEqual() throws IOException {
+	void calAsciiEqual() throws IOException {
 		// TODO Auto-generated method stub
 		
 		BufferedReader br = new BufferedReader(new FileReader("Mesonet.txt"));
@@ -74,7 +74,7 @@ public class MesoEquivalent {
 		
 		myString = ("}");
 		
-		return storedAverage;
+		System.out.println(myString);
 
 	}
 
