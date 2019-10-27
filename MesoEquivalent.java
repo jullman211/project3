@@ -31,7 +31,12 @@ public class MesoEquivalent {
 //		secondAverage = calAverageSecond();
 	}
 	
-
+	
+	static HashMap<String,Integer> print(HashMap<String,Integer> storedAverage2){
+        System.out.println(storedAverage2);
+        return storedAverage2;
+    }
+	
 	public  HashMap<String, Integer> calAsciiEqual() throws IOException {
 		// TODO Auto-generated method stub
 		
@@ -59,8 +64,8 @@ public class MesoEquivalent {
 				
 				avgValueString = calCompare(compareString);
 				if(avgValueString == compareTestAvgBase) {
-					storedAverage.put(compareString, compareTestAvgBase);
-					sortedAverage.put(compareString,compareTestAvgBase);
+					storedAverage.put(compareString, 76);
+					sortedAverage.put(compareString,76);
 				}
 				
 			}
@@ -79,7 +84,7 @@ public class MesoEquivalent {
 //		        Map.Entry pair = (Map.Entry)it.next();
 //		        System.out.println(pair.getKey() + " = " + pair.getValue());
 //		    }
-		return storedAverage;
+		return print(storedAverage);
 
 	}
 
